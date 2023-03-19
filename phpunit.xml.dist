@@ -2,7 +2,7 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
-         cacheResultFile="data/cache/phpunit.cache"
+         cacheResultFile="build/cache/phpunit.cache"
          colors="true">
     <coverage processUncoveredFiles="true">
         <include>
@@ -10,7 +10,7 @@
         </include>
     </coverage>
     <testsuites>
-        <testsuite name="PhayneTest\PhpServiceBus">
+        <testsuite name="PhayneTest\ServiceBus">
             <directory>./test</directory>
         </testsuite>
     </testsuites>
