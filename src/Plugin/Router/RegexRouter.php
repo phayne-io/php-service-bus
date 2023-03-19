@@ -20,8 +20,8 @@ use Phayne\ServiceBus\CommandBus;
 use Phayne\ServiceBus\EventBus;
 use Phayne\ServiceBus\MessageBus;
 use Phayne\ServiceBus\Plugin\AbstractPlugin;
-
 use Phayne\ServiceBus\QueryBus;
+
 use function current;
 use function get_class;
 use function gettype;

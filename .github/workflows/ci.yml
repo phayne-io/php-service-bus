@@ -40,7 +40,7 @@ jobs:
         if: steps.composer-cache.outputs.cache-hit != 'true'
         uses: php-actions/composer@v6
         with:
-          php_version: "8.2.1"
+          php_version: "8.2.4"
           version: 2
           args: --ignore-platform-reqs --no-suggest --no-scripts
         env:
