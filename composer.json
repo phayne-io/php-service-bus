@@ -19,7 +19,8 @@
     "php": "^8.2",
     "phayne-io/php-messaging": "^1.0@dev",
     "phayne-io/phunctional": "^1.0@dev",
-    "react/promise": "^2.9"
+    "react/promise": "^2.9",
+    "sandrokeil/interop-config": "^2.2"
   },
   "require-dev": {
     "dg/bypass-finals": "^1.4",
@@ -27,7 +28,8 @@
     "php-coveralls/php-coveralls": "^v2.5",
     "phpunit/phpunit": "^9.6",
     "squizlabs/php_codesniffer": "^3.7",
-    "vimeo/psalm": "^4.30"
+    "vimeo/psalm": "^4.30",
+    "phpspec/prophecy-phpunit": "^2.0"
   },
   "autoload": {
     "psr-4": {
