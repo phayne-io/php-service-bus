@@ -1,0 +1,53 @@
+{
+  "name": "phayne-io/php-service-bus",
+  "description": "Lightweight message bus supporting CQRS and Micro Services",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Julien Guittard",
+      "email": "julien@phayne.com"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/phayne-io/php-service-bus",
+    "issues": "https://github.com/phayne-io/php-service-bus/issues",
+    "rss": "https://github.com/phayne-io/php-service-bus/releases.atom",
+    "wiki": "https://github.com/phayne-io/php-service-bus/wiki"
+  },
+  "require": {
+    "php": "^8.2",
+    "phayne-io/php-messaging": "^1.0@dev"
+  },
+  "require-dev": {
+    "dg/bypass-finals": "^1.4",
+    "malukenho/docheader": "^1.0",
+    "php-coveralls/php-coveralls": "^v2.5",
+    "phpunit/phpunit": "^9.6",
+    "squizlabs/php_codesniffer": "^3.7",
+    "vimeo/psalm": "^4.30"
+  },
+  "autoload": {
+    "psr-4": {
+      "Phayne\\ServiceBus\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PhayneTest\\ServiceBus\\": "test/"
+    }
+  },
+  "scripts": {
+    "test-html": "XDEBUG_MODE=coverage phpunit --colors=always -vvv --coverage-html build/html",
+    "test-clover": "XDEBUG_MODE=coverage phpunit --colors=always -vvv --coverage-clover build/logs/clover.xml",
+    "static": "./vendor/bin/psalm --config=psalm.xml",
+    "style": "./vendor/bin/phpcs",
+    "test": ["@test-html", "@static", "@style"]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  },
+  "prefer-stable": true
+}
