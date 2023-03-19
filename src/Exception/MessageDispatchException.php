@@ -25,11 +25,15 @@ use Throwable;
  */
 class MessageDispatchException extends DomainException
 {
-    public static function failed(Throwable $dispatchException): self
+    public function __construct(string $message = "", ?Throwable $previous = null)
     {
-        return new self(
+        parent::__construct($message, StatusCodeInterface::STATUS_UNPROCESSABLE_ENTITY, $previous);
+    }
+
+    public static function failed(Throwable $dispatchException): static
+    {
+        return new static(
             'Message dispatch failed. See previous exception for details',
-            StatusCodeInterface::STATUS_UNPROCESSABLE_ENTITY,
             $dispatchException
         );
     }

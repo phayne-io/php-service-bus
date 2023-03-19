@@ -17,7 +17,9 @@
   },
   "require": {
     "php": "^8.2",
-    "phayne-io/php-messaging": "^1.0@dev"
+    "phayne-io/php-messaging": "^1.0@dev",
+    "phayne-io/phunctional": "^1.0@dev",
+    "react/promise": "^2.9"
   },
   "require-dev": {
     "dg/bypass-finals": "^1.4",

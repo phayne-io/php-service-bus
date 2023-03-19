@@ -15,6 +15,7 @@ namespace PhayneTest\ServiceBus\Mock;
 
 use Phayne\Messaging\Event\ActionEvent;
 use Phayne\ServiceBus\MessageBus;
+use React\Promise\PromiseInterface;
 
 /**
  * Class CustomMessageBus
@@ -26,7 +27,7 @@ class CustomMessageBus extends MessageBus
 {
     private ?ActionEvent $actionEvent = null;
 
-    public function dispatch(mixed $message): void
+    public function dispatch(mixed $message): ?PromiseInterface
     {
         $actionEventEmitter = $this->events;
 
@@ -36,6 +37,8 @@ class CustomMessageBus extends MessageBus
         $actionEvent->setParam(self::EVENT_PARAM_MESSAGE, $message);
 
         $actionEventEmitter->dispatch($actionEvent);
+
+        return null;
     }
 
     public function setActionEvent(ActionEvent $event): void
