@@ -16,9 +16,8 @@ namespace Phayne\ServiceBus\Plugin\InvokeStrategy;
 use Phayne\Messaging\Event\ActionEvent;
 use Phayne\ServiceBus\MessageBus;
 use Phayne\ServiceBus\Plugin\AbstractPlugin;
+use Phayne\ServiceBus\Plugin\Finder;
 use Phayne\ServiceBus\QueryBus;
-
-use function is_object;
 
 /**
  * Class FinderInvokeStrategy
@@ -41,7 +40,7 @@ class FinderInvokeStrategy extends AbstractPlugin
                 $query = $actionEvent->param(MessageBus::EVENT_PARAM_MESSAGE);
                 $deferred = $actionEvent->param(QueryBus::EVENT_PARAM_DEFERRED);
 
-                if (is_object($finder)) {
+                if ($finder instanceof Finder) {
                     $finder->find($query, $deferred);
                     $actionEvent->setParam(MessageBus::EVENT_PARAM_MESSAGE_HANDLED, true);
                 }
