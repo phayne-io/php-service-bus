@@ -19,8 +19,6 @@ use Phayne\ServiceBus\Exception\EventListenerException;
 use React\Promise\PromiseInterface;
 use Throwable;
 
-use function Phayne\Phunctional\each;
-
 /**
  * Class EventBus
  *
@@ -31,7 +29,7 @@ class EventBus extends MessageBus
 {
     public const EVENT_PARAM_EVENT_LISTENERS = 'event-listeners';
 
-    protected bool $collectExceptions = false;
+    protected bool $collectingExceptions = false;
 
     protected array $collectedExceptions = [];
 
@@ -55,7 +53,7 @@ class EventBus extends MessageBus
                         $eventListener($event);
                         $handled = true;
                     } catch (Throwable $exception) {
-                        if ($this->collectExceptions) {
+                        if ($this->collectingExceptions) {
                             $this->collectedExceptions[] = $exception;
                         } else {
                             throw $exception;
@@ -117,17 +115,17 @@ class EventBus extends MessageBus
 
     public function enableCollectExceptions(): void
     {
-        $this->collectExceptions = true;
+        $this->collectingExceptions = true;
     }
 
     public function disableCollectExceptions(): void
     {
-        $this->collectExceptions = false;
+        $this->collectingExceptions = false;
     }
 
-    public function isCollectionExceptions(): bool
+    public function isCollectingExceptions(): bool
     {
-        return $this->collectExceptions;
+        return $this->collectingExceptions;
     }
 
     public function addCollectedException(Throwable $e): void
